@@ -1,21 +1,24 @@
 package godelay
 
 import (
+	"log"
 	"testing"
 	"time"
 )
 
 func TestQueue(t *testing.T) {
+	log.Println("start ...")
 	//获取实例
-	qe := GetEntry()
+	delay := GetEntry()
 	//加入延时队列
-	qe.Schedule(func() {
-		println("hi!")
+	delay.Schedule(func() {
+		log.Println("id_001  exec ...")
 	}, 3*time.Second, "id_001")
+
 	if time.Now().Year() == 2014 {
 		//取消队列
-		qe.Cancel("id_001")
+		delay.Cancel("id_001")
 	}
 	//保持运行
-	qe.Run()
+	delay.Run()
 }
