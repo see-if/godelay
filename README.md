@@ -6,5 +6,5 @@ go 延时任务
 可以直接引入
 
 ```bash
-go get github.com/see-if/simqueue
+go get github.com/see-if/godelay
 ```
